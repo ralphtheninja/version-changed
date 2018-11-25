@@ -29,7 +29,7 @@ On command line:
 ```json
 {
   "scripts": {
-    "prebuild": "version-changed && prebuildify --napi --strip"
+    "prebuild": "(version-changed && prebuildify --napi --strip) || true"
   }
 }
 ```
