@@ -26,10 +26,19 @@ versionChanged((err, changed) => {
 
 On command line:
 
+```sh
+$ version-changed && ./dosomething
+```
+
+When used in `package.json` it's more handy to shortcut with `||`. For this reason you can use `version-unchanged`.
+
+The `prebuild` script below will run `prebuildify` if the version has changed, but will not fail if the version didn't change.
+
+
 ```json
 {
   "scripts": {
-    "prebuild": "(version-changed && prebuildify --napi --strip) || true"
+    "prebuild": "version-unchanged || prebuildify --napi"
   }
 }
 ```
@@ -39,6 +48,16 @@ On command line:
 ### `versionChanged(err, cb)`
 
 Calls back with `(err, changed)` where `changed` is `true` if the version in `package.json` at the current commit has changed compared to the previous commit, otherwise `false`.
+
+## CLI
+
+### `version-changed`
+
+Exits with `0` if the version has changed. Use this together with `&&`.
+
+### `version-unchanged`
+
+Exits with `0` if the version is _unchanged_. Use this together with `||`.
 
 ## Kudos
 
