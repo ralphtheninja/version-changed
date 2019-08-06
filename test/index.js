@@ -17,7 +17,7 @@ test('version-changed/version-unchanged exit codes', t => {
   })
 })
 
-test('reative-path', t => {
+test('relative path', t => {
   const changed = exec(path.resolve(__dirname, '..', 'version-changed.js'), { cwd: __dirname }, () => {
     const unchanged = exec(path.resolve(__dirname, '..', 'version-unchanged.js'), { cwd: __dirname }, () => {
       if (changed.exitCode === 1) {
