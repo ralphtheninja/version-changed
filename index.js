@@ -1,7 +1,7 @@
 const exec = require('child_process').exec
 
 const getPackageVersion = (rev, cb) => {
-  exec(`git show ${rev}:package.json`, {
+  exec(`git show ${rev}:./package.json`, {
     encoding: 'utf8'
   }, (err, diff) => {
     cb(err, diff && JSON.parse(diff).version)
