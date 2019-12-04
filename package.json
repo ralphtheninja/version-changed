@@ -26,8 +26,5 @@
     "changed",
     "package.json"
   ],
-  "engines": {
-    "node": ">=6.0.0"
-  },
   "license": "MIT"
 }
